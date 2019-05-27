@@ -72,7 +72,7 @@
 
 </form>
     #parse("fragments/poller")
-    #parse("consentor/grpv2-signing-consentor/handle-auto-start-uri")
+    #parse("consentor/cgi-grpv2-signing-consentor/handle-auto-start-uri")
 
 ## if the cancel button is clicked then the form is posted with cancelled flag equal to true
 ## then the backend handles the cancellation of the flow

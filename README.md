@@ -32,7 +32,7 @@ The easiest way to configure a new CGI-GRPv2 Signing Consentor is using the Curi
 
 - On the next page, the consentor's specific configuration can be set.
 
-![Update conentor](docs/images/update-consentor.png?raw=true "Update Consentor")
+![Update consentor](docs/images/update-consentor.png?raw=true "Update Consentor")
 
 - The first part is a description of the consentor. A free text description can be written.
 
@@ -52,6 +52,14 @@ The easiest way to configure a new CGI-GRPv2 Signing Consentor is using the Curi
 
 - The `ServiceId` or `Policy` is a customer identifier and can be obtained from CGI. It can be considered as a password for the service endpoints called and is unique per customer. 
 
+
+### Server truststore configuration
+In order for the signing consentor to connect to the CGI-GRPv2 endpoints, the server has to get its trustore updated with the certificates of those endpoints.
+For that reason, a new entry in the server trustore can be added as depicted below, by pasting the endpoint's url in the corresponding form.
+
+![Update truststore](docs/images/new-server-truststore.png?raw=true "Update Consentor")
+
+This configuration setting exists under Facilities > Server Trust Stores > + New.  
 
 #### License
 
