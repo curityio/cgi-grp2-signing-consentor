@@ -1,4 +1,4 @@
-#CGI-GRPv2 Signing Consentor
+# CGI-GRPv2 Signing Consentor
 
 A consentor that uses the **CGI-GRPv2** for signing the consent data.
 
@@ -7,21 +7,21 @@ This plugin provides the ability to an administrator to add functionality to Cur
 The aforementioned API will be used to sign the consent data along with providing information about the person that signs the data, such as the Swedish personal number. 
 For more information on the CGI-GRPv2 and the signing flow please visit <https://doc.funktionstjanster.se/#API/GRP2/>.
 
-##System Requirements
+## System Requirements
 
 Curity Identity Server 4.1.0 and its system requirements <https://developer.curity.io/docs/latest/system-admin-guide/system-requirements.html> .
 
 
-###Requirements for Building from Source
+### Requirements for Building from Source
 The source code is written entirely in Java. Tests are written in Groovy and use *Spock* - http://spockframework.org/ and *Mockito* https://site.mockito.org/.
 It can be compiled using Maven 3. The project can be compiled by executing a command like : `mvn clean package`. 
 
-####Installation
+#### Installation
 To install this plug-in, either download a binary version available from `the releases section of this project's GitHub repository`, or compile it from source (as described above). 
 If you compiled the plug-in from source, the package will be placed in the `target` subdirectory. The resulting JAR file or the one downloaded from GitHub needs to placed in the directory ${IDSVR_HOME}/usr/share/plugins/consent.cgigrp2consentor. 
 (The name of the last directory, consent.cgigrp2consentor, which is the plug-in group, is arbitrary and can be anything.)
 
-##Creating a CGI-GRPv2 Signing Consentor in Curity
+## Creating a CGI-GRPv2 Signing Consentor in Curity
 The easiest way to configure a new CGI-GRPv2 Signing Consentor is using the Curity admin UI. The configuration for this can be downloaded as XML or CLI commands later, so only the steps to do this in the GUI will be described.
 
 - Go to the `Profiles` page and click the `Token Service Profile (OAuth Dev)` wherein the consentor instance should be created.
@@ -53,12 +53,12 @@ The easiest way to configure a new CGI-GRPv2 Signing Consentor is using the Curi
 - The `ServiceId` or `Policy` is a customer identifier and can be obtained from CGI. It can be considered as a password for the service endpoints called and is unique per customer. 
 
 
-####License
+#### License
 
 
 This plugin and its associated documentation is listed under the `Apache 2 license` <http://www.apache.org/licenses/LICENSE-2.0>.
 
-####More Information
+#### More Information
 
 
 Please visit **curity.io** <https://curity.io/> for more information about the **Curity Identity Server**.
