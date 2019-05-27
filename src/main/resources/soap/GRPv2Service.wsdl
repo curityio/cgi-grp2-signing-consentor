@@ -1,0 +1,225 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+  ~ Copyright 2019 Curity AB
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+<definitions xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+             xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy"
+             xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata"
+             xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl"
+             xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+             xmlns:tns="http://mobilityguard.com/grp/service/v2.0/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://mobilityguard.com/grp/service/v2.0/"
+             name="GrpService">
+    <wsp:Policy wsu:Id="GrpServiceServletPortBinding_WSAM_Addressing_Policy">
+        <wsam:Addressing wsp:Optional="true">
+            <wsp:Policy/>
+        </wsam:Addressing>
+    </wsp:Policy>
+    <types>
+        <xsd:schema>
+            <xsd:import namespace="http://mobilityguard.com/grp/service/v2.0/"
+                        schemaLocation="GRPv2.xsd"/>
+        </xsd:schema>
+    </types>
+    <message name="Cancel">
+        <part name="CancelRequest" element="tns:CancelRequest"/>
+    </message>
+    <message name="CancelResponse">
+        <part name="CancelResponse" element="tns:CancelResponse"/>
+    </message>
+    <message name="GrpFault">
+        <part name="fault" element="tns:GrpFault"/>
+    </message>
+    <message name="Sign">
+        <part name="SignRequest" element="tns:SignRequest"/>
+    </message>
+    <message name="SignResponse">
+        <part name="SignResponse" element="tns:SignResponse"/>
+    </message>
+    <message name="Collect">
+        <part name="CollectRequest" element="tns:CollectRequest"/>
+    </message>
+    <message name="CollectResponse">
+        <part name="CollectResponse" element="tns:CollectResponse"/>
+    </message>
+    <message name="Status">
+        <part name="StatusRequest" element="tns:StatusRequest"/>
+    </message>
+    <message name="StatusResponse">
+        <part name="StatusResponse" element="tns:StatusResponse"/>
+    </message>
+    <message name="DisplayName">
+        <part name="DisplayNameRequest" element="tns:DisplayNameRequest"/>
+    </message>
+    <message name="DisplayNameResponse">
+        <part name="DisplayNameResponse" element="tns:DisplayNameResponse"/>
+    </message>
+    <message name="Authenticate">
+        <part name="AuthenticateRequest" element="tns:AuthenticateRequest"/>
+    </message>
+    <message name="AuthenticateResponse">
+        <part name="AuthenticateResponse" element="tns:AuthenticateResponse"/>
+    </message>
+    <portType name="GrpServicePortType">
+        <operation name="Cancel">
+            <input wsaw:Action="http://mobilityguard.com/grp/service/v2.0/GrpServicePortType/CancelRequest"
+                   wsam:Action="http://mobilityguard.com/grp/service/v2.0/GrpServicePortType/CancelRequest"
+                   message="tns:Cancel"/>
+            <output wsaw:Action="http://mobilityguard.com/grp/service/v2.0/GrpServicePortType/CancelResponse"
+                    wsam:Action="http://mobilityguard.com/grp/service/v2.0/GrpServicePortType/CancelResponse"
+                    message="tns:CancelResponse"/>
+            <fault message="tns:GrpFault" name="GrpFault"
+                   wsaw:Action="http://mobilityguard.com/grp/service/v2.0/GrpServicePortType/Cancel/Fault/GrpFault"
+                   wsam:Action="http://mobilityguard.com/grp/service/v2.0/GrpServicePortType/Cancel/Fault/GrpFault"/>
+        </operation>
+        <operation name="Sign">
+            <input wsaw:Action="http://mobilityguard.com/grp/service/v2.0/GrpServicePortType/SignRequest"
+                   wsam:Action="http://mobilityguard.com/grp/service/v2.0/GrpServicePortType/SignRequest"
+                   message="tns:Sign"/>
+            <output wsaw:Action="http://mobilityguard.com/grp/service/v2.0/GrpServicePortType/SignResponse"
+                    wsam:Action="http://mobilityguard.com/grp/service/v2.0/GrpServicePortType/SignResponse"
+                    message="tns:SignResponse"/>
+            <fault message="tns:GrpFault" name="GrpFault"
+                   wsaw:Action="http://mobilityguard.com/grp/service/v2.0/GrpServicePortType/Sign/Fault/GrpFault"
+                   wsam:Action="http://mobilityguard.com/grp/service/v2.0/GrpServicePortType/Sign/Fault/GrpFault"/>
+        </operation>
+        <operation name="Collect">
+            <input wsaw:Action="http://mobilityguard.com/grp/service/v2.0/GrpServicePortType/CollectRequest"
+                   wsam:Action="http://mobilityguard.com/grp/service/v2.0/GrpServicePortType/CollectRequest"
+                   message="tns:Collect"/>
+            <output wsaw:Action="http://mobilityguard.com/grp/service/v2.0/GrpServicePortType/CollectResponse"
+                    wsam:Action="http://mobilityguard.com/grp/service/v2.0/GrpServicePortType/CollectResponse"
+                    message="tns:CollectResponse"/>
+            <fault message="tns:GrpFault" name="GrpFault"
+                   wsaw:Action="http://mobilityguard.com/grp/service/v2.0/GrpServicePortType/Collect/Fault/GrpFault"
+                   wsam:Action="http://mobilityguard.com/grp/service/v2.0/GrpServicePortType/Collect/Fault/GrpFault"/>
+        </operation>
+        <operation name="Status">
+            <input wsaw:Action="http://mobilityguard.com/grp/service/v2.0/GrpServicePortType/StatusRequest"
+                   wsam:Action="http://mobilityguard.com/grp/service/v2.0/GrpServicePortType/StatusRequest"
+                   message="tns:Status"/>
+            <output wsaw:Action="http://mobilityguard.com/grp/service/v2.0/GrpServicePortType/StatusResponse"
+                    wsam:Action="http://mobilityguard.com/grp/service/v2.0/GrpServicePortType/StatusResponse"
+                    message="tns:StatusResponse"/>
+            <fault message="tns:GrpFault" name="GrpFault"
+                   wsaw:Action="http://mobilityguard.com/grp/service/v2.0/GrpServicePortType/Status/Fault/GrpFault"
+                   wsam:Action="http://mobilityguard.com/grp/service/v2.0/GrpServicePortType/Status/Fault/GrpFault"/>
+        </operation>
+        <operation name="DisplayName">
+            <input wsaw:Action="http://mobilityguard.com/grp/service/v2.0/GrpServicePortType/DisplayNameRequest"
+                   wsam:Action="http://mobilityguard.com/grp/service/v2.0/GrpServicePortType/DisplayNameRequest"
+                   message="tns:DisplayName"/>
+            <output wsaw:Action="http://mobilityguard.com/grp/service/v2.0/GrpServicePortType/DisplayNameResponse"
+                    wsam:Action="http://mobilityguard.com/grp/service/v2.0/GrpServicePortType/DisplayNameResponse"
+                    message="tns:DisplayNameResponse"/>
+            <fault message="tns:GrpFault" name="GrpFault"
+                   wsaw:Action="http://mobilityguard.com/grp/service/v2.0/GrpServicePortType/DisplayName/Fault/GrpFault"
+                   wsam:Action="http://mobilityguard.com/grp/service/v2.0/GrpServicePortType/DisplayName/Fault/GrpFault"/>
+        </operation>
+        <operation name="Authenticate">
+            <input wsaw:Action="http://mobilityguard.com/grp/service/v2.0/GrpServicePortType/AuthenticateRequest"
+                   wsam:Action="http://mobilityguard.com/grp/service/v2.0/GrpServicePortType/AuthenticateRequest"
+                   message="tns:Authenticate"/>
+            <output wsaw:Action="http://mobilityguard.com/grp/service/v2.0/GrpServicePortType/AuthenticateResponse"
+                    wsam:Action="http://mobilityguard.com/grp/service/v2.0/GrpServicePortType/AuthenticateResponse"
+                    message="tns:AuthenticateResponse"/>
+            <fault message="tns:GrpFault" name="GrpFault"
+                   wsaw:Action="http://mobilityguard.com/grp/service/v2.0/GrpServicePortType/Authenticate/Fault/GrpFault"
+                   wsam:Action="http://mobilityguard.com/grp/service/v2.0/GrpServicePortType/Authenticate/Fault/GrpFault"/>
+        </operation>
+    </portType>
+    <binding name="GrpServiceServletPortBinding" type="tns:GrpServicePortType">
+        <wsaw:UsingAddressing/>
+        <wsp:PolicyReference URI="#GrpServiceServletPortBinding_WSAM_Addressing_Policy"/>
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <operation name="Cancel">
+            <soap12:operation soapAction=""/>
+            <input>
+                <soap12:body use="literal"/>
+            </input>
+            <output>
+                <soap12:body use="literal"/>
+            </output>
+            <fault name="GrpFault">
+                <soap12:fault name="GrpFault" use="literal"/>
+            </fault>
+        </operation>
+        <operation name="Sign">
+            <soap12:operation soapAction=""/>
+            <input>
+                <soap12:body use="literal"/>
+            </input>
+            <output>
+                <soap12:body use="literal"/>
+            </output>
+            <fault name="GrpFault">
+                <soap12:fault name="GrpFault" use="literal"/>
+            </fault>
+        </operation>
+        <operation name="Collect">
+            <soap12:operation soapAction=""/>
+            <input>
+                <soap12:body use="literal"/>
+            </input>
+            <output>
+                <soap12:body use="literal"/>
+            </output>
+            <fault name="GrpFault">
+                <soap12:fault name="GrpFault" use="literal"/>
+            </fault>
+        </operation>
+        <operation name="Status">
+            <soap12:operation soapAction=""/>
+            <input>
+                <soap12:body use="literal"/>
+            </input>
+            <output>
+                <soap12:body use="literal"/>
+            </output>
+            <fault name="GrpFault">
+                <soap12:fault name="GrpFault" use="literal"/>
+            </fault>
+        </operation>
+        <operation name="DisplayName">
+            <soap12:operation soapAction=""/>
+            <input>
+                <soap12:body use="literal"/>
+            </input>
+            <output>
+                <soap12:body use="literal"/>
+            </output>
+            <fault name="GrpFault">
+                <soap12:fault name="GrpFault" use="literal"/>
+            </fault>
+        </operation>
+        <operation name="Authenticate">
+            <soap12:operation soapAction=""/>
+            <input>
+                <soap12:body use="literal"/>
+            </input>
+            <output>
+                <soap12:body use="literal"/>
+            </output>
+            <fault name="GrpFault">
+                <soap12:fault name="GrpFault" use="literal"/>
+            </fault>
+        </operation>
+    </binding>
+    <service name="GrpService">
+        <port name="GrpServiceServletPort" binding="tns:GrpServiceServletPortBinding">
+            <soap12:address location="https://grpt.funktionstjanster.se:18898/grp/v2"/>
+        </port>
+    </service>
+</definitions>
