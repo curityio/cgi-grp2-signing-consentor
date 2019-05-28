@@ -61,8 +61,11 @@ For that reason, a new entry in the server trustore can be added as depicted bel
 
 This configuration setting exists under Facilities > Server Trust Stores > + New.  
 
-#### License
+### Important note
 
+If logging is configured on *TRACE* or *DEBUG* level, it will cause sensitive, personally identifiable information (e.g., personal number, IP address, name, etc. as part of the CGI-GRP2 responses) to be logged.
+
+#### License
 
 This plugin and its associated documentation is listed under the `Apache 2 license` <http://www.apache.org/licenses/LICENSE-2.0>.
 
