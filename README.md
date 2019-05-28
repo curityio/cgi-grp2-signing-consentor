@@ -13,7 +13,7 @@ Curity Identity Server 4.1.0 and its system requirements <https://developer.curi
 
 
 ### Requirements for Building from Source
-The source code is written entirely in Java. Tests are written in Groovy and use *Spock* - http://spockframework.org/ and *Mockito* https://site.mockito.org/.
+The source code is written entirely in Java. Tests are written in Groovy and use [Spock](http://spockframework.org/) and [https://site.mockito.org/](Mockito).
 It can be compiled using Maven 3. The project can be compiled by executing a command like : `mvn clean package`. The build process requires JDK 8.
 
 #### Installation
