@@ -2,7 +2,7 @@
 
 A consentor that uses the **CGI-GRPv2** for signing the consent data.
 
-This project provides an open source CGI-GRPv2 Signing Consentor plug-in for the Curity Identity Server.
+This project provides an open source CGI-GRPv2 Signing Consentor plugin for the Curity Identity Server.
 This plugin provides the ability to an administrator to add functionality to Curity, which enables the users to sign the consent data using the CGI-GRPv2 API. 
 The aforementioned API will be used to sign the consent data along with providing information about the person that signs the data, such as the Swedish personal number. 
 For more information on the CGI-GRPv2 and the signing flow please visit <https://doc.funktionstjanster.se/#API/GRP2/>.
@@ -14,19 +14,19 @@ Curity Identity Server 4.1.0 and its system requirements <https://developer.curi
 
 ### Requirements for Building from Source
 The source code is written entirely in Java. Tests are written in Groovy and use *Spock* - http://spockframework.org/ and *Mockito* https://site.mockito.org/.
-It can be compiled using Maven 3. The project can be compiled by executing a command like : `mvn clean package`. 
+It can be compiled using Maven 3. The project can be compiled by executing a command like : `mvn clean package`. The build process requires JDK 8.
 
 #### Installation
-To install this plug-in, either download a binary version available from `the releases section of this project's GitHub repository`, or compile it from source (as described above). 
-If you compiled the plug-in from source, the package will be placed in the `target` subdirectory. The resulting JAR file or the one downloaded from GitHub needs to placed in the directory ${IDSVR_HOME}/usr/share/plugins/consent.cgigrp2consentor. 
-(The name of the last directory, consent.cgigrp2consentor, which is the plug-in group, is arbitrary and can be anything.)
+To install this plugin, either download a binary version available from [the releases section of this project's GitHub repository](https://github.com/curityio/cgi-grp2-signing-consentor/releases) , or compile it from source (as described above). 
+If you compiled the plugin from source, the package will be placed in the `target` subdirectory. The resulting JAR file or the one downloaded from GitHub needs to placed in the directory ${IDSVR_HOME}/usr/share/plugins/consent.cgigrp2consentor. 
+(The name of the last directory, consent.cgigrp2consentor, which is the plugin group, is arbitrary and can be anything.)
 
 ## Creating a CGI-GRPv2 Signing Consentor in Curity
 The easiest way to configure a new CGI-GRPv2 Signing Consentor is using the Curity admin UI. The configuration for this can be downloaded as XML or CLI commands later, so only the steps to do this in the GUI will be described.
 
-- Go to the `Profiles` page and click the `Token Service Profile (OAuth Dev)` wherein the consentor instance should be created.
+- Go to the `Profiles` page and click the `Token Service Profile` wherein the consentor instance should be created.
 - Navigate lower in the `General` section and at the `Consentors` sub-section click the `New consentor` button.
-- Once the pop up shows up, type the name of the consentor and select the type `Signing`. Click `Next`.
+- Once the pop up shows up, type a name/identifier for the consentor and select the type `Signing`. Click `Next`.
 
 ![Create consentor](docs/images/create-consentor.png?raw=true "Create Consentor")
 
