@@ -51,8 +51,9 @@
     <input type="hidden" name="state" value="$_state"/>
     <div class="center">
         <h1 id="signData" class="center header">#message("${_templatePrefix}.view.visibleSignData")</h1>
-        <h3 id="visibleSignData">$!_visibleSigningData</h3>
-        <p/>
+        <h3 id="visibleSignData">
+            <pre>$!_visibleSigningData</pre>
+        </h3>        <p/>
         <h1 id="qrCode" class="center header">
             #message("${_templatePrefix}.view.scan-qrcode")
             <span>
