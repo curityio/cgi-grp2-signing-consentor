@@ -26,6 +26,8 @@ import com.grp.service.v2_0.types.CollectResponseType;
 import com.grp.service.v2_0.types.GrpFaultType;
 import com.grp.service.v2_0.types.OrderResponseType;
 import com.grp.service.v2_0.types.SignRequestType;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import se.curity.identityserver.sdk.service.ExceptionFactory;
 import se.curity.identityserver.sdk.service.trust.TrustManagerFactory;
 
@@ -48,6 +50,8 @@ public class CgiGrp2SigningClient
 {
     private static final String USER_CANCEL = "USER_CANCEL";
     private static final String DOMAIN_NAME_COULD_NOT_BE_PARSED = "Domain name for CGI-GRP endpoint could not be parsed";
+
+    private static Logger _logger = LoggerFactory.getLogger(CgiGrp2SigningClient.class);
 
     private ExceptionFactory _exceptionFactory;
     private GRPOperationalMode _operationalMode;
@@ -94,7 +98,9 @@ public class CgiGrp2SigningClient
         }
         catch (GrpFault grpFault)
         {
-            throw _exceptionFactory.externalServiceException(extractErrorMessage(grpFault));
+            String errorMsg = extractErrorMessage(grpFault);
+            _logger.info(errorMsg);
+            throw _exceptionFactory.externalServiceException(errorMsg);
         }
 
         return response;
@@ -114,14 +120,18 @@ public class CgiGrp2SigningClient
         }
         catch (GrpFault grpFault)
         {
+            String errorMsg = extractErrorMessage(grpFault);
+
             // when a user cancels via the native application then a GrpFault is returned.
             if (USER_CANCEL.equalsIgnoreCase(grpFault.getMessage()))
             {
+                _logger.trace(errorMsg);
                 response.setProgressStatus(USER_CANCEL);
                 return response;
             }
 
-            throw _exceptionFactory.externalServiceException(extractErrorMessage(grpFault));
+            _logger.info(errorMsg);
+            throw _exceptionFactory.externalServiceException(errorMsg);
         }
 
         return response;
