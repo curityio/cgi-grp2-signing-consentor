@@ -78,7 +78,7 @@ public class CgiGrp2SigningConsentor implements SigningConsentor
                 configuration.operationalMode(),
                 configuration.authenticationMode(),
                 configuration.serviceId(),
-                ServiceProvider.bankid,
+                AuthenticationProvider.bankid,
                 configuration.getTrustManagerFactory());
         _sessionManager = configuration.getSessionManager();
         _providerIsBankId = true;

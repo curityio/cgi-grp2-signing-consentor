@@ -20,7 +20,7 @@ package io.curity.identityserver.plugin.cgigrp2consentor;
  * The 'provider' as described in the CGI-GRP2 API.
  * Can be bankid, freja or nias (Net iD Access).
  */
-public enum ServiceProvider
+public enum AuthenticationProvider
 {
     //BankID
     bankid,

@@ -14,7 +14,6 @@
  *  limitations under the License.
  */
 
-
 package io.curity.identityserver.plugin.cgigrp2consentor;
 
 import com.grp.service.v2_0.GrpFault;
@@ -54,7 +53,7 @@ public class CgiGrp2SigningClient
     private GRPOperationalMode _operationalMode;
     private GRPAuthenticationMode _authenticationMode;
     private String _serviceId;
-    private ServiceProvider _serviceProvider;
+    private AuthenticationProvider _authenticationProvider;
     private TrustManagerFactory _trustManagerFactory;
 
     private static final String EID_TEST_ENDPOINT = "https://eidt.funktionstjanster.se:18898/grp/v2";
@@ -62,18 +61,21 @@ public class CgiGrp2SigningClient
     private static final String EID_PROD_ENDPOINT = "https://eid.funktionstjanster.se:8890/grp/v2";
     private static final String GRP_PROD_ENDPOINT = "https://grp.funktionstjanster.se:8890/grp/v2";
 
+    private static final String JAXWS_PROPERTIES_SSL_SOCKET_FACTORY_INTERNAL
+            = "com.sun.xml.internal.ws.transport.https.client.SSLSocketFactory";
+
     public CgiGrp2SigningClient(ExceptionFactory exceptionFactory,
                                 GRPOperationalMode operationalMode,
                                 GRPAuthenticationMode authenticationMode,
                                 String serviceId,
-                                ServiceProvider serviceProvider,
+                                AuthenticationProvider authenticationProvider,
                                 TrustManagerFactory trustManagerFactory)
     {
         _exceptionFactory = exceptionFactory;
         _authenticationMode = authenticationMode;
         _operationalMode = operationalMode;
         _serviceId = serviceId;
-        _serviceProvider = serviceProvider;
+        _authenticationProvider = authenticationProvider;
         _trustManagerFactory = trustManagerFactory;
     }
 
@@ -84,7 +86,7 @@ public class CgiGrp2SigningClient
         try
         {
             signRequest.setPolicy(_serviceId);
-            signRequest.setProvider(_serviceProvider.name());
+            signRequest.setProvider(_authenticationProvider.name());
             signRequest.setUserVisibleData(Base64.getEncoder().encodeToString(textToDisplay.getBytes(StandardCharsets.UTF_8)));
             signRequest.setUserNonVisibleData(Base64.getEncoder().encodeToString(objectToSign.getBytes(StandardCharsets.UTF_8)));
 
@@ -104,7 +106,7 @@ public class CgiGrp2SigningClient
         CollectRequestType collectRequest = new CollectRequestType();
         collectRequest.setOrderRef(orderRef);
         collectRequest.setPolicy(_serviceId);
-        collectRequest.setProvider(_serviceProvider.name());
+        collectRequest.setProvider(_authenticationProvider.name());
 
         try
         {
@@ -137,7 +139,7 @@ public class CgiGrp2SigningClient
         //{
         // CancelRequestType cancelRequest = new CancelRequestType();
         // cancelRequest.setOrderRef(orderRef);
-        // cancelRequest.setProvider(_serviceProvider.name());
+        // cancelRequest.setProvider(_authenticationProvider.name());
         // cancelRequest.setPolicy(_serviceId);
         // cancelResponse = getServicePort().cancel(cancelRequest);
         //}
@@ -182,18 +184,13 @@ public class CgiGrp2SigningClient
 
         String endpoint = resolveEndpoint();
         bindingProvider.getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, endpoint);
-
-        final String JAXWS_PROPERTIES_SSL_SOCKET_FACTORY_INTERNAL
-                = "com.sun.xml.internal.ws.transport.https.client.SSLSocketFactory";
         bindingProvider.getRequestContext().put(JAXWS_PROPERTIES_SSL_SOCKET_FACTORY_INTERNAL, sc.getSocketFactory());
 
         return port;
-
     }
 
     private String resolveEndpoint()
     {
-
         if (_operationalMode.equals(GRPOperationalMode.TEST))
         {
             return _authenticationMode.equals(GRPAuthenticationMode.GRP) ? GRP_TEST_ENDPOINT : EID_TEST_ENDPOINT;
@@ -202,7 +199,6 @@ public class CgiGrp2SigningClient
         {
             return _authenticationMode.equals(GRPAuthenticationMode.GRP) ? GRP_PROD_ENDPOINT : EID_PROD_ENDPOINT;
         }
-
     }
 
     String getDomainName(String url)
