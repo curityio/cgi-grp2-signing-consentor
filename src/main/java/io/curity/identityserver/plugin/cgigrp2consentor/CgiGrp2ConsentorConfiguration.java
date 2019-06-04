@@ -43,7 +43,7 @@ public interface CgiGrp2ConsentorConfiguration extends Configuration
     @DefaultEnum("GRP")
     GRPAuthenticationMode authenticationMode();
 
-    @Name("serviceId")
+    @Name("service-id")
     @Description("The service id provided by CGI-GRP2 as user identifier")
     String serviceId();
 
