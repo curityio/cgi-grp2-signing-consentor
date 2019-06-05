@@ -86,8 +86,8 @@
     })
 </script>
 ## NOTE: In case the user refreshes the page while this form is shown and is polling for status, then any progress will be lost.
-## When multiple consnentors are configured, then the browser will show a default pop up message upon refresh, mentioning
-## that any progress will be lost. In any other case, the relevant event upon refreshing should be handled in order to
+## Depending on the context, the browser will show a default pop up message upon refresh, mentioning that any progress
+## will be lost if continuing with refresh. Otherwise, the relevant event upon refreshing should be handled in order to
 ## inform the user that the flow will be restarted.
 #end
 #parse("layouts/default")
