@@ -55,7 +55,7 @@ The easiest way to configure a new CGI-GRPv2 Signing Consentor is using the Curi
 
 ### Server truststore configuration
 In order for the signing consentor to connect to the CGI-GRPv2 endpoints, the server has to get its trustore updated with the certificates of those endpoints.
-For that reason, a new entry in the server trustore can be added as depicted below, by pasting the endpoint's url in the corresponding form.
+For that reason, a new entry in the server trustore can be added as depicted below, by pasting the endpoint's url in the corresponding form. For the specific endpoints to be used, please consult the CGI-GRPv2 API documentation.
 
 ![Update truststore](docs/images/new-server-truststore.png?raw=true "Update Consentor")
 
