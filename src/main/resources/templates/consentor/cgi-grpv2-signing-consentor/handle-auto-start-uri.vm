@@ -53,10 +53,9 @@
         // Open the BankID app
         jQuery("p").append('<a id="startBankIdApp" class="button button-light-grey button-small" href="'
                 + autostartUri + '">Sign on the same device</a>');
+        //that click action will auto start the BankID app
+        jQuery('#startBankIdApp')[0].click();
     });
-
-    //in order to autostart bankID without clicking on the button, uncomment the next line
-    //jQuery('#startBankIdApp')[0].click();
 
     function getAutoStartUri() {
 
