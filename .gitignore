@@ -15,3 +15,9 @@ buildNumber.properties
 .idea
 
 src/generated
+
+# Logs
+*.log
+
+# Mac
+.DS_Store
