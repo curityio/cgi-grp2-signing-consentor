@@ -41,6 +41,7 @@
 #end
 
 #define($_body)
+<iframe id="autoStart" height="0" width="0" frameborder="0"></iframe>
 <form id="pollerForm" action="$_action" method="post">
 ## The moveOn is a flag that when set indicates that the page is ready to move on
 ## the poller script will post to the server _without_ this flag, and when the script
@@ -53,7 +54,12 @@
         <h1 id="signData" class="center header">#message("${_templatePrefix}.view.visibleSignData")</h1>
         <h3 id="visibleSignData">
             <pre>$!_visibleSigningData</pre>
-        </h3>        <p/>
+        </h3>
+        <p class="h4 mb4 semibold center" id="startupAttemptMessage">#message("${_templatePrefix}.view.title")</p>
+        <p/>
+        <div class="manuallink pb0 display-none">
+            <a id="startBankIdApp" class="button button-light-grey button-small" href="">#message("${_templatePrefix}.view.sign")</a>
+        </div>
         <h1 id="qrCode" class="center header">
             #message("${_templatePrefix}.view.scan-qrcode")
             <span>
@@ -68,10 +74,13 @@
         </div>
     #end
 
-    <button id="cancelButton" type="button" class="button button-fullwidth button-danger-outline">
-        #message("${_templatePrefix}.view.button.cancel")</button>
+    <div class="manuallink pb0 display-none">
+        <button id="cancelButton" type="button" class="button button-fullwidth button-danger-outline">
+            #message("${_templatePrefix}.view.button.cancel")</button>
+    </div>
 
 </form>
+    #parse("fragments/consentor-signing-app-launcher")
     #parse("fragments/poller")
     #parse("consentor/cgi-grpv2-signing-consentor/handle-auto-start-uri")
 
