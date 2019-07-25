@@ -50,7 +50,7 @@ The easiest way to configure a new CGI-GRPv2 Signing Consentor is using the Curi
 
 - `Operational Mode` can be *test* or *production* and the corresponding environment's endpoints will be called during signing the consent data.
 
-- The `ServiceId` or `Policy` is a customer identifier and can be obtained from CGI. It can be considered as a password for the service endpoints called and is unique per customer. 
+- The `ServiceId` or `Policy` is a customer identifier and can be obtained from CGI. It can be considered as a password for the service endpoints called and is unique per customer. For instance 'logtest001'.
 
 
 ### Server truststore configuration
