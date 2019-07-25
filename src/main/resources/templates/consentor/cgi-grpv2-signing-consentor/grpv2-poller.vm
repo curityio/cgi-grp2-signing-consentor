@@ -73,17 +73,14 @@
             #parse("fragments/spinner")
         </div>
     #end
-
     <div class="manuallink pb0 display-none">
         <button id="cancelButton" type="button" class="button button-fullwidth button-danger-outline">
             #message("${_templatePrefix}.view.button.cancel")</button>
     </div>
-
 </form>
-    #parse("fragments/consentor-signing-app-launcher")
     #parse("fragments/poller")
     #parse("consentor/cgi-grpv2-signing-consentor/handle-auto-start-uri")
-
+    #parse("fragments/consentor-signing-app-launcher")
 ## if the cancel button is clicked then the form is posted with cancelled flag equal to true
 ## then the backend handles the cancellation of the flow
 <script type="application/javascript" $nonceAttr>
@@ -94,7 +91,7 @@
         })
     })
 </script>
-## NOTE: In case the user refreshes the page while this form is shown and is polling for status, then any progress will be lost.
+## NOTE: In case the user refreshes the page while this form is shown and polling for status, then any progress will be lost.
 ## Depending on the context, the browser will show a default pop up message upon refresh, mentioning that any progress
 ## will be lost if continuing with refresh. Otherwise, the relevant event upon refreshing should be handled in order to
 ## inform the user that the flow will be restarted.
