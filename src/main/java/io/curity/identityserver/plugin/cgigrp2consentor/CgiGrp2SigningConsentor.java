@@ -45,7 +45,8 @@ public class CgiGrp2SigningConsentor implements SigningConsentor
 
     private static final String CONSENT_ORDER_REF = "_consentOrderRef";
     private static final String OCSP = "OCSP";
-    private static final String NAME = "Name";
+    private static final String USER = "user";
+    private static final String IP_ADDRESS = "ipAddress";
     private static final String PERSONAL_NUMBER = "PersonalNumber";
     private static final String SIGNATURE = "Signature";
     private static final String VISIBLE_SIGNING_DATA = "_visibleSigningData";
@@ -110,7 +111,9 @@ public class CgiGrp2SigningConsentor implements SigningConsentor
         {
             ImmutableMap<String, Object> grpResponseMap = new ImmutableMap.Builder<String, Object>()
                     .put(OCSP, response.getValidationInfo().getOcspResponse())
-                    .put(NAME, response.getUserInfo().getDisplayName())
+                    .put(USER, response.getUserInfo())
+                    .put(CONSENT_ORDER_REF, orderRef)
+                    .put(IP_ADDRESS, response.getUserInfo().getIpAddress())
                     .put(PERSONAL_NUMBER, response.getUserInfo().getSubjectIdentifier())
                     .put(SIGNATURE, response.getValidationInfo().getSignature())
                     .build();
