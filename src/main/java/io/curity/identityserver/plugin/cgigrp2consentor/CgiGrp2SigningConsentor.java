@@ -68,6 +68,12 @@ public class CgiGrp2SigningConsentor implements SigningConsentor
      */
     private static final String CSP_OVERRIDE_IMG_SRC = "_cspImgsrc";
     private static final String CSP_OVERRIDE_IMG_SRC_DATA = "img-src 'self' data:;";
+    /**
+     * Key for the name of the value that would override the default 'child-src' definition
+     * in the Content Security Policy header. When used, must include complete
+     * definition, for example "child-src 'self' bankid:;'
+     */
+    public static final String CSP_OVERRIDE_CHILD_SRC = "_cspChildSrc";
     private static final String POLLER = "grpv2-poller";
     private static final String COMPLETE = "COMPLETE";
     private static final String USER_CANCEL = "USER_CANCEL";
@@ -157,6 +163,7 @@ public class CgiGrp2SigningConsentor implements SigningConsentor
                 .put(AUTOSTART_TOKEN, autoStartToken)
                 .put(VISIBLE_SIGNING_DATA, textToDisplay)
                 .put(PROVIDER_IS_BANK_ID, _providerIsBankId)
+                .put(CSP_OVERRIDE_CHILD_SRC, "child-src 'self' " + "bankid" + ":;")
                 .put(CSP_OVERRIDE_IMG_SRC, CSP_OVERRIDE_IMG_SRC_DATA).build();
     }
 
