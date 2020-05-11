@@ -53,7 +53,7 @@ public class CgiGrp2SigningConsentor implements SigningConsentor
     private static final String AUTOSTART_TOKEN = "_autostartToken";
     private static final String QR_CODE = "_qrCode";
     private static final String DATA_IMAGE_PNG_BASE_64 = "data:image/png;base64,";
-    public static final String EMPTY_STRING = "";
+    private static final String EMPTY_STRING = "";
 
     private final ExceptionFactory _exceptionFactory;
     private final CgiGrp2SigningClient _signingClient;
@@ -72,7 +72,7 @@ public class CgiGrp2SigningConsentor implements SigningConsentor
      * in the Content Security Policy header. When used, must include complete
      * definition, for example "child-src 'self' bankid:;'
      */
-    public static final String CSP_OVERRIDE_CHILD_SRC = "_cspChildSrc";
+    private static final String CSP_OVERRIDE_CHILD_SRC = "_cspChildSrc";
     private static final String POLLER = "grpv2-poller";
     private static final String COMPLETE = "COMPLETE";
     private static final String USER_CANCEL = "USER_CANCEL";
@@ -164,7 +164,7 @@ public class CgiGrp2SigningConsentor implements SigningConsentor
                 .put(CSP_OVERRIDE_IMG_SRC, CSP_OVERRIDE_IMG_SRC_DATA).build();
     }
 
-    public static String generateQRCodeAsDataUri(String value)
+    private static String generateQRCodeAsDataUri(String value)
     {
         StringBuilder builder = new StringBuilder(DATA_IMAGE_PNG_BASE_64);
         ByteArrayOutputStream stream = QRCode.from(value)
