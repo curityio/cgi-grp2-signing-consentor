@@ -1,5 +1,8 @@
 # CGI-GRPv2 Signing Consentor
 
+[![Quality](https://curity.io/assets/images/badges/cgi-grp2-signing-consentor-quality.svg)](https://curity.io/resources/code-examples/status/)
+[![Availability](https://curity.io/assets/images/badges/cgi-grp2-signing-consentor-availability.svg)](https://curity.io/resources/code-examples/status/)
+
 A consentor that uses the **CGI-GRPv2** for signing the consent data.
 
 This project provides an open source CGI-GRPv2 Signing Consentor plugin for the Curity Identity Server.
