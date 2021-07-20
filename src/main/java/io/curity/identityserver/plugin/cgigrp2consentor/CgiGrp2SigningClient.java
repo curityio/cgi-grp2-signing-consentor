@@ -33,6 +33,7 @@ import se.curity.identityserver.sdk.service.trust.TrustManagerFactory;
 
 import javax.annotation.Nullable;
 import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.xml.ws.BindingProvider;
 import java.net.URI;
@@ -67,6 +68,8 @@ public class CgiGrp2SigningClient
 
     private static final String JAXWS_PROPERTIES_SSL_SOCKET_FACTORY_INTERNAL
             = "com.sun.xml.internal.ws.transport.https.client.SSLSocketFactory";
+    private static final String JAXWS_PROPERTIES_SSL_SOCKET_FACTORY
+            = "com.sun.xml.ws.transport.https.client.SSLSocketFactory";
 
     public CgiGrp2SigningClient(ExceptionFactory exceptionFactory,
                                 GRPOperationalMode operationalMode,
@@ -194,7 +197,10 @@ public class CgiGrp2SigningClient
 
         String endpoint = resolveEndpoint();
         bindingProvider.getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, endpoint);
-        bindingProvider.getRequestContext().put(JAXWS_PROPERTIES_SSL_SOCKET_FACTORY_INTERNAL, sc.getSocketFactory());
+
+        SSLSocketFactory socketFactory = sc.getSocketFactory();
+        bindingProvider.getRequestContext().put(JAXWS_PROPERTIES_SSL_SOCKET_FACTORY_INTERNAL, socketFactory);
+        bindingProvider.getRequestContext().put(JAXWS_PROPERTIES_SSL_SOCKET_FACTORY, socketFactory);
 
         return port;
     }
