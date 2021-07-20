@@ -199,6 +199,7 @@ public class CgiGrp2SigningClient
         bindingProvider.getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, endpoint);
 
         SSLSocketFactory socketFactory = sc.getSocketFactory();
+        // Set both properties so that the plugin is usable with the bundled JAX-WS implementation and the reference implementation.
         bindingProvider.getRequestContext().put(JAXWS_PROPERTIES_SSL_SOCKET_FACTORY_INTERNAL, socketFactory);
         bindingProvider.getRequestContext().put(JAXWS_PROPERTIES_SSL_SOCKET_FACTORY, socketFactory);
 
