@@ -18,7 +18,7 @@ package com.grp.service.v2_0;
 
 import com.grp.service.v2_0.types.GrpFaultType;
 
-import javax.xml.ws.WebFault;
+import jakarta.xml.ws.WebFault;
 
 @WebFault(name = "GrpFault", targetNamespace = "http://mobilityguard.com/grp/service/v2.0/")
 public class GrpFault
