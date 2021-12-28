@@ -14,5 +14,5 @@
  *  limitations under the License.
  */
 
-@javax.xml.bind.annotation.XmlSchema(namespace = "http://mobilityguard.com/grp/service/v2.0/")
+@jakarta.xml.bind.annotation.XmlSchema(namespace = "http://mobilityguard.com/grp/service/v2.0/")
 package com.grp.service.v2_0;

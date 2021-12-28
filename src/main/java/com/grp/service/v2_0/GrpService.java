@@ -18,11 +18,11 @@ package com.grp.service.v2_0;
 
 import java.net.URL;
 import javax.xml.namespace.QName;
-import javax.xml.ws.Service;
-import javax.xml.ws.WebEndpoint;
-import javax.xml.ws.WebServiceClient;
-import javax.xml.ws.WebServiceException;
-import javax.xml.ws.WebServiceFeature;
+import jakarta.xml.ws.Service;
+import jakarta.xml.ws.WebEndpoint;
+import jakarta.xml.ws.WebServiceClient;
+import jakarta.xml.ws.WebServiceException;
+import jakarta.xml.ws.WebServiceFeature;
 
 @WebServiceClient(name = "GrpService", targetNamespace = "http://mobilityguard.com/grp/service/v2.0/", wsdlLocation = "GRPv2Service.wsdl")
 public class GrpService
@@ -89,7 +89,7 @@ public class GrpService
     }
 
     /**
-     * @param features A list of {@link javax.xml.ws.WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
+     * @param features A list of {@link jakarta.xml.ws.WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
      * @return returns GrpServicePortType
      */
     @WebEndpoint(name = "GrpServiceServletPort")
