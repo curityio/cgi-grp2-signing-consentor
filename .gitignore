@@ -21,3 +21,5 @@ src/generated
 
 # Mac
 .DS_Store
+.gradle
+
