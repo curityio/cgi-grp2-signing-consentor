@@ -39,8 +39,12 @@
 
     <groupId>io.curity.identityserver.plugin</groupId>
     <artifactId>identityserver.plugins.consentor.cgi-grp2-signing-consentor</artifactId>
-    <version>2.0.0</version>
+    <version>2.0.1</version>
     <packaging>jar</packaging>
+    <name>CGI GRP 2 Signing Consentor</name>
+    <organization>
+        <name>Curity AB</name>
+    </organization>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -113,6 +117,19 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                  <archive>
+                    <index>true</index>
+                    <manifest>
+                      <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                    </manifest>
+                  </archive>
+                </configuration>
+              </plugin>
         </plugins>
     </build>
     <dependencies>
